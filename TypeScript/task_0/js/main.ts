@@ -41,3 +41,5 @@ for (const student of studentsList) {
     const cellLocation = trBody.insertCell();
     cellLocation.textContent = student.location;
 }
+
+document.body.appendChild(table);
