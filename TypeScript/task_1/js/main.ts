@@ -8,7 +8,7 @@ interface Teacher {
 }
 
 const teacher3: Teacher = {
-  firstName: 'John',
+  firstName: 'Pohn',
   fullTimeEmployee: false,
   lastName: 'Doe',
   location: 'London',
@@ -30,3 +30,13 @@ const director1: Directors = {
 };
 console.log(director1);
 
+interface printTeacherFunction {
+  (firstName: string, lastName: string): string;
+}
+
+const printTeacher: printTeacherFunction = (firstName, lastName) => {
+  return `${firstName[0]}. ${lastName}`;
+};
+
+console.log(printTeacher(director1.firstName, director1.lastName));
+console.log(printTeacher(teacher3.firstName, teacher3.lastName));
