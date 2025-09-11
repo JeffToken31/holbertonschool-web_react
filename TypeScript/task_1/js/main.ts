@@ -1,10 +1,10 @@
 interface Teacher {
-  firstName: string,
-  lastName: string,
-  fullTimeEmployee: boolean,
-  yearsOfExperience?: number,
-  location: string,
-  [contract: string]: any
+  firstName: string;
+  lastName: string;
+  fullTimeEmployee: boolean;
+  yearsOfExperience?: number;
+  location: string;
+  [contract: string]: any;
 }
 
 const teacher3: Teacher = {
@@ -18,7 +18,7 @@ const teacher3: Teacher = {
 console.log(teacher3);
 
 interface Directors extends Teacher {
-  numberOfReports: number,
+  numberOfReports: number;
 }
 
 const director1: Directors = {
@@ -40,3 +40,32 @@ const printTeacher: printTeacherFunction = (firstName, lastName) => {
 
 console.log(printTeacher(director1.firstName, director1.lastName));
 console.log(printTeacher(teacher3.firstName, teacher3.lastName));
+
+interface StudentInterface {
+  firstName: string;
+  lastName: string;
+  workOnHomework(): string;
+  displayName(): string;
+}
+interface StudentConstructor {
+  new (firstName: string, lastName: string): StudentInterface;
+}
+
+class studentClass implements StudentInterface {
+  firstName: string;
+  lastName: string;
+
+  constructor(firstName: string, lastName: string) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+  workOnHomework(): string {
+    return `Currently working`;
+  }
+  displayName(): string {
+    return this.firstName;
+  }
+}
+
+const student1 = new studentClass('Jeff', 'Bezos');
+console.log(student1.displayName());
